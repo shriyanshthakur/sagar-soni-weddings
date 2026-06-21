@@ -1,0 +1,130 @@
+---
+const services = [
+  {
+    id: "catering",
+    title: "Indoor & Outdoor Catering",
+    subtitle: "Artisanal Gastronomy",
+    description: "Renowned culinary excellence since 2000. We curate custom multi-cuisine menus (traditional Indian, Continental, Asian) using premium ingredients and fine-art presentations.",
+    image: "https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop",
+    features: ["Bespoke Menu Customization", "Live Food Counters & Mocktail Bars", "Royal Uniformed Butler Service"]
+  },
+  {
+    id: "decoration",
+    title: "Theme Decoration & Lighting",
+    subtitle: "Bespoke Scenography",
+    description: "Breathtaking wedding mandaps, entrance archways, floral designs, and architectural lighting setups that turn venues into royal sanctuaries.",
+    image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop",
+    features: ["Traditional & Modern Fusion Themes", "Exotic Floral Installations", "Intelligent Light Scapes"]
+  },
+  {
+    id: "sangeet",
+    title: "Ladies Sangeet & Sound",
+    subtitle: "Choreography & Celebration",
+    description: "Bring your family's story to life on stage with professional choreographers, premium high-fidelity sound, custom stage setups, and spectacular DJ nights.",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop",
+    features: ["Bespoke Dance Choreography", "Celebrity Dance Troupes", "Premium Sound & Visual FX"]
+  },
+  {
+    id: "photography",
+    title: "Cinematic Video & Photography",
+    subtitle: "Visual Legacy",
+    description: "Candid photography, cinematic pre-wedding short films, and comprehensive wedding coverage that capture the raw emotion, laughter, and romance.",
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2070&auto=format&fit=crop",
+    features: ["Award-Winning Candid Photographers", "Cinematic Pre-wedding Shoots", "High-End Keepsake Albums"]
+  },
+  {
+    id: "corporate",
+    title: "Private & Corporate Events",
+    subtitle: "Impeccable Hosting",
+    description: "From milestone birthday celebrations and golden anniversaries to premium corporate events and academic convocations in Chhattisgarh.",
+    image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop",
+    features: ["End-to-End Coordination", "Venue Selection Assistance", "Theme & Logistics Management"]
+  }
+];
+---
+
+<section id="services" class="py-24 sm:py-32 bg-brand-ivory-dark/30 relative">
+  
+  <!-- Subtle background branding -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.02] flex items-center justify-center">
+    <span class="text-[12rem] font-serif font-bold tracking-widest text-brand-gold select-none">SAGAR SONI</span>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-20 sm:mb-28">
+      <span class="text-xs font-semibold uppercase tracking-widest text-brand-gold mb-3 block">Bespoke Offerings</span>
+      <h2 class="text-3xl sm:text-5xl font-serif tracking-wide text-brand-charcoal mb-6">
+        Complete arrangements under <span class="font-serif-italic font-normal text-brand-gold">one roof</span>.
+      </h2>
+      <div class="w-20 h-[1px] bg-brand-gold mx-auto mb-6"></div>
+      <p class="text-brand-charcoal-light font-light text-sm sm:text-base leading-relaxed">
+        We handle every logistical detail and creative flourish with extreme precision, allowing you to reside fully in the magic of your celebration.
+      </p>
+    </div>
+
+    <!-- Asymmetric Editorial Services Grid -->
+    <div class="space-y-24 sm:space-y-36">
+      {services.map((service, index) => (
+        <div class={`flex flex-col lg:flex-row items-center gap-12 sm:gap-16 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+          
+          <!-- Image Container (Editorial framing) -->
+          <div class="w-full lg:w-1/2 relative group">
+            <!-- Behind background card outline -->
+            <div class="absolute -inset-3 border border-brand-gold/20 translate-x-3 translate-y-3 rounded-sm group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-500"></div>
+            
+            <div class="relative overflow-hidden rounded-sm aspect-[4/3] bg-brand-gold/10 shadow-md">
+              <img 
+                src={service.image} 
+                alt={service.title} 
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div class="absolute inset-0 bg-brand-charcoal/10 group-hover:bg-transparent transition-colors duration-300"></div>
+            </div>
+          </div>
+
+          <!-- Description Column -->
+          <div class="w-full lg:w-1/2 flex flex-col justify-center">
+            <span class="text-xs font-medium tracking-widest uppercase text-brand-sage mb-2 block">{service.subtitle}</span>
+            <h3 class="text-2xl sm:text-4xl font-serif text-brand-charcoal mb-4 hover:text-brand-gold transition-colors duration-300">
+              {service.title}
+            </h3>
+            <p class="text-brand-charcoal-light text-sm sm:text-base font-light leading-relaxed mb-6">
+              {service.description}
+            </p>
+            
+            <div class="w-full h-[1px] bg-brand-gold/20 mb-6"></div>
+
+            <!-- Core Features List -->
+            <ul class="space-y-3 mb-8">
+              {service.features.map(feat => (
+                <li class="flex items-center gap-3 text-sm text-brand-charcoal/80 font-medium">
+                  <svg class="w-4 h-4 text-brand-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div>
+              <a 
+                href="#contact" 
+                class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-brand-charcoal hover:text-brand-gold transition-colors duration-300"
+              >
+                <span>Enquire About {service.id === 'catering' ? 'Catering' : 'This Service'}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

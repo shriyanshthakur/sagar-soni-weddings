@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Sagar Soni Weddings | Event Management, Wedding Planner & Catering Services",
+  description = "Central India's premier wedding planner since 2000. Complete luxury wedding arrangements, premium catering, theme decor, ladies sangeet & photography under one roof in Raipur, Chhattisgarh."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="wedding planner raipur, event management raipur, catering services raipur chhattisgarh, sagar soni events, indian wedding decorator, ladies sangeet choreographer, candid photography raipur" />
+    <meta name="author" content="Sagar Soni Weddings" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://sagarsoniweddings.com" />
+    <meta property="og:site_name" content="Sagar Soni Weddings" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical Hero Image -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=65&w=1200&auto=format&fit=crop" fetchpriority="high" />
+  </head>
+  <body class="min-h-screen selection:bg-brand-gold/30 selection:text-brand-charcoal overflow-x-hidden antialiased">
+    <slot />
+  </body>
+</html>

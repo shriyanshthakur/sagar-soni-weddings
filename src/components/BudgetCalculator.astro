@@ -1,0 +1,275 @@
+---
+---
+
+<section id="calculator" class="py-24 sm:py-32 bg-brand-blush relative">
+  <!-- Subtle overlay pattern -->
+  <div class="absolute inset-0 bg-[radial-gradient(var(--color-brand-gold-light)_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+
+  <div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+    
+    <!-- Header -->
+    <div class="max-w-2xl mx-auto text-center mb-16">
+      <span class="text-xs font-semibold uppercase tracking-widest text-brand-gold mb-3 block">Interactive Concierge</span>
+      <h2 class="text-3xl sm:text-5xl font-serif tracking-wide text-brand-charcoal mb-4">
+        Estimate Your *Celebration*
+      </h2>
+      <div class="w-16 h-[1px] bg-brand-gold mx-auto mb-4"></div>
+      <p class="text-brand-charcoal-light font-light text-sm sm:text-base leading-relaxed">
+        Select your expected guest size, venue type, and preferred services below to calculate a luxury investment guideline.
+      </p>
+    </div>
+
+    <!-- Main Card -->
+    <div class="glass-card bg-white/80 p-8 sm:p-12 rounded-sm border border-brand-gold/20 shadow-lg">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16">
+        
+        <!-- Interactive Inputs Form -->
+        <div class="space-y-8">
+          
+          <!-- Guest Count Input -->
+          <div>
+            <label for="guests" class="block text-xs font-semibold tracking-widest uppercase text-brand-charcoal mb-3">
+              Expected Guest Count: <span id="guests-val" class="text-brand-gold text-sm font-bold lowercase">300 guests</span>
+            </label>
+            <input 
+              type="range" 
+              id="guests" 
+              min="100" 
+              max="1500" 
+              step="50" 
+              value="300"
+              class="w-full h-1 bg-brand-gold-light accent-brand-gold rounded-lg appearance-none cursor-pointer"
+            />
+            <div class="flex justify-between text-[10px] text-brand-charcoal-light/60 mt-1 uppercase font-semibold">
+              <span>100 Guests</span>
+              <span>1500+ Guests</span>
+            </div>
+          </div>
+
+          <!-- Venue Type Input -->
+          <div>
+            <label class="block text-xs font-semibold tracking-widest uppercase text-brand-charcoal mb-3">
+              Preferred Venue Setting
+            </label>
+            <div class="grid grid-cols-3 gap-3">
+              <label class="border border-brand-gold/30 hover:border-brand-gold rounded-sm p-3 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 text-center select-none bg-brand-ivory/20" id="label-indoor">
+                <input type="radio" name="venue" value="indoor" checked class="sr-only" />
+                <span class="text-xs font-semibold text-brand-charcoal uppercase tracking-wider">Indoor</span>
+                <span class="text-[9px] text-brand-charcoal-light/70 mt-1">Banquet / Hall</span>
+              </label>
+              <label class="border border-brand-gold/30 hover:border-brand-gold rounded-sm p-3 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 text-center select-none bg-brand-ivory/20" id="label-outdoor">
+                <input type="radio" name="venue" value="outdoor" class="sr-only" />
+                <span class="text-xs font-semibold text-brand-charcoal uppercase tracking-wider">Outdoor</span>
+                <span class="text-[9px] text-brand-charcoal-light/70 mt-1">Lawn / Garden</span>
+              </label>
+              <label class="border border-brand-gold/30 hover:border-brand-gold rounded-sm p-3 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 text-center select-none bg-brand-ivory/20" id="label-destination">
+                <input type="radio" name="venue" value="destination" class="sr-only" />
+                <span class="text-xs font-semibold text-brand-charcoal uppercase tracking-wider">Royal</span>
+                <span class="text-[9px] text-brand-charcoal-light/70 mt-1">Heritage Resort</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Services Checkboxes -->
+          <div>
+            <label class="block text-xs font-semibold tracking-widest uppercase text-brand-charcoal mb-4">
+              Select Desired Services
+            </label>
+            <div class="space-y-3">
+              
+              <label class="flex items-start gap-3 p-3 border border-brand-gold/10 hover:border-brand-gold/40 rounded-sm cursor-pointer transition-all duration-300 bg-brand-ivory/10">
+                <input type="checkbox" id="srv-catering" checked class="mt-1 w-4 h-4 rounded text-brand-gold focus:ring-brand-gold accent-brand-gold" />
+                <div>
+                  <span class="text-sm font-semibold text-brand-charcoal block">Premium Catering</span>
+                  <span class="text-xs text-brand-charcoal-light/80">Fine dining, live counters & custom menus</span>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3 p-3 border border-brand-gold/10 hover:border-brand-gold/40 rounded-sm cursor-pointer transition-all duration-300 bg-brand-ivory/10">
+                <input type="checkbox" id="srv-decor" checked class="mt-1 w-4 h-4 rounded text-brand-gold focus:ring-brand-gold accent-brand-gold" />
+                <div>
+                  <span class="text-sm font-semibold text-brand-charcoal block">Theme Decoration & Lighting</span>
+                  <span class="text-xs text-brand-charcoal-light/80">Floral installations, grand mandaps & lighting sets</span>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3 p-3 border border-brand-gold/10 hover:border-brand-gold/40 rounded-sm cursor-pointer transition-all duration-300 bg-brand-ivory/10">
+                <input type="checkbox" id="srv-sangeet" class="mt-1 w-4 h-4 rounded text-brand-gold focus:ring-brand-gold accent-brand-gold" />
+                <div>
+                  <span class="text-sm font-semibold text-brand-charcoal block">Ladies Sangeet & Sound Setup</span>
+                  <span class="text-xs text-brand-charcoal-light/80">Choreography coordination, premium sound system & DJ</span>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3 p-3 border border-brand-gold/10 hover:border-brand-gold/40 rounded-sm cursor-pointer transition-all duration-300 bg-brand-ivory/10">
+                <input type="checkbox" id="srv-photo" class="mt-1 w-4 h-4 rounded text-brand-gold focus:ring-brand-gold accent-brand-gold" />
+                <div>
+                  <span class="text-sm font-semibold text-brand-charcoal block">Cinematic Photo & Video</span>
+                  <span class="text-xs text-brand-charcoal-light/80">Pre-wedding films, candid coverage & premium albums</span>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Real-time Output Estimate Screen -->
+        <div class="bg-brand-ivory rounded-sm border border-brand-gold/30 p-8 flex flex-col justify-between text-center relative overflow-hidden">
+          
+          <!-- Background logo watermark -->
+          <div class="absolute -right-10 -bottom-10 opacity-[0.03] pointer-events-none select-none">
+            <svg width="200" height="200" viewBox="0 0 100 100" fill="currentColor">
+              <path d="M50 0 C75 25, 75 75, 50 100 C25 75, 25 25, 50 0 Z" />
+            </svg>
+          </div>
+
+          <div class="space-y-6">
+            <span class="text-[10px] font-bold tracking-widest uppercase text-brand-gold-dark block">Estimated Investment Range</span>
+            <div class="py-6 border-y border-brand-gold/20">
+              <!-- Animated Large Estimate Range -->
+              <span id="price-range" class="text-3xl sm:text-4xl font-serif font-bold text-brand-charcoal tracking-wide block transition-all duration-300">
+                ₹3,80,000 - ₹5,40,000
+              </span>
+              <span class="text-[11px] text-brand-charcoal-light/70 uppercase tracking-widest mt-2 block font-medium">Estimated Budget (Raipur Local)</span>
+            </div>
+            
+            <p class="text-xs text-brand-charcoal-light leading-relaxed font-light">
+              *This provides a preliminary benchmark utilizing premium vendor specifications and Sagar Soni signature services. Subject to final concept design.
+            </p>
+          </div>
+
+          <div class="mt-8 space-y-4">
+            <a 
+              href="#contact" 
+              class="w-full inline-flex items-center justify-center px-6 py-4 bg-brand-gold hover:bg-brand-gold-dark text-white text-xs font-semibold tracking-widest uppercase transition-all duration-300 rounded-sm shadow-md"
+            >
+              Consult with Sagar Soni
+            </a>
+            <p class="text-[10px] text-brand-sage font-medium tracking-wider uppercase">
+              Free Consultation & Budget Breakdown Included
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // DOM Elements
+  const guestInput = document.getElementById('guests') as HTMLInputElement;
+  const guestValSpan = document.getElementById('guests-val');
+  const cateringCheckbox = document.getElementById('srv-catering') as HTMLInputElement;
+  const decorCheckbox = document.getElementById('srv-decor') as HTMLInputElement;
+  const sangeetCheckbox = document.getElementById('srv-sangeet') as HTMLInputElement;
+  const photoCheckbox = document.getElementById('srv-photo') as HTMLInputElement;
+  const priceRangeSpan = document.getElementById('price-range');
+
+  const venueInputs = document.getElementsByName('venue') as NodeListOf<HTMLInputElement>;
+  const labels = {
+    indoor: document.getElementById('label-indoor'),
+    outdoor: document.getElementById('label-outdoor'),
+    destination: document.getElementById('label-destination'),
+  };
+
+  // Pricing constants (INR)
+  const PRICING = {
+    cateringPerGuest: { min: 1100, max: 2200 },
+    decor: {
+      indoor: { min: 120000, max: 350000 },
+      outdoor: { min: 180000, max: 500000 },
+      destination: { min: 350000, max: 900000 },
+    },
+    sangeet: { min: 60000, max: 220000 },
+    photo: { min: 120000, max: 350000 },
+  };
+
+  // Format currency in Lakhs/Thousands in Indian format (₹ xx,xx,xxx)
+  function formatINR(amount: number): string {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(amount);
+  }
+
+  function updatePricing() {
+    const guests = parseInt(guestInput.value);
+    
+    // Update guest count display
+    if (guestValSpan) {
+      guestValSpan.textContent = `${guests} guests`;
+    }
+
+    // Get selected venue
+    let venueType: 'indoor' | 'outdoor' | 'destination' = 'indoor';
+    venueInputs.forEach(input => {
+      if (input.checked) {
+        venueType = input.value as 'indoor' | 'outdoor' | 'destination';
+      }
+    });
+
+    // Update label visual highlights
+    Object.keys(labels).forEach(key => {
+      const labelEl = labels[key as 'indoor' | 'outdoor' | 'destination'];
+      if (key === venueType) {
+        labelEl?.classList.add('border-brand-gold', 'bg-brand-gold-light/40');
+        labelEl?.classList.remove('border-brand-gold/30', 'bg-brand-ivory/20');
+      } else {
+        labelEl?.classList.remove('border-brand-gold', 'bg-brand-gold-light/40');
+        labelEl?.classList.add('border-brand-gold/30', 'bg-brand-ivory/20');
+      }
+    });
+
+    let minTotal = 0;
+    let maxTotal = 0;
+
+    // 1. Catering Calculation
+    if (cateringCheckbox && cateringCheckbox.checked) {
+      minTotal += guests * PRICING.cateringPerGuest.min;
+      maxTotal += guests * PRICING.cateringPerGuest.max;
+    }
+
+    // 2. Decor Calculation
+    if (decorCheckbox && decorCheckbox.checked) {
+      minTotal += PRICING.decor[venueType].min;
+      maxTotal += PRICING.decor[venueType].max;
+    }
+
+    // 3. Sangeet Calculation
+    if (sangeetCheckbox && sangeetCheckbox.checked) {
+      minTotal += PRICING.sangeet.min;
+      maxTotal += PRICING.sangeet.max;
+    }
+
+    // 4. Photography Calculation
+    if (photoCheckbox && photoCheckbox.checked) {
+      minTotal += PRICING.photo.min;
+      maxTotal += PRICING.photo.max;
+    }
+
+    // Display formatted range
+    if (priceRangeSpan) {
+      if (minTotal === 0 && maxTotal === 0) {
+        priceRangeSpan.textContent = "₹0";
+      } else {
+        priceRangeSpan.textContent = `${formatINR(minTotal)} - ${formatINR(maxTotal)}`;
+      }
+    }
+  }
+
+  // Event Listeners
+  guestInput?.addEventListener('input', updatePricing);
+  cateringCheckbox?.addEventListener('change', updatePricing);
+  decorCheckbox?.addEventListener('change', updatePricing);
+  sangeetCheckbox?.addEventListener('change', updatePricing);
+  photoCheckbox?.addEventListener('change', updatePricing);
+  venueInputs.forEach(input => input.addEventListener('change', updatePricing));
+
+  // Run initial load
+  updatePricing();
+</script>

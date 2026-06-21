@@ -1,0 +1,181 @@
+---
+const galleryItems = [
+  {
+    id: 1,
+    category: "decor",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop",
+    title: "Vibrant Mandap Installation",
+    caption: "A traditional Raipur wedding adorned with exotic marigolds, roses, and gold drapes."
+  },
+  {
+    id: 2,
+    category: "catering",
+    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?q=80&w=800&auto=format&fit=crop",
+    title: "Royal Indian Gastronomy",
+    caption: "Traditional main-course catering featuring signature local and national dishes."
+  },
+  {
+    id: 3,
+    category: "photography",
+    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop",
+    title: "Pre-wedding Cinematic Shoot",
+    caption: "Capturing the couple's romance against Raipur's historic architectural landmarks."
+  },
+  {
+    id: 4,
+    category: "decor",
+    image: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=800&auto=format&fit=crop",
+    title: "Luxury Reception Canopy",
+    caption: "Overhead canopy of glass chandeliers, hanging vines, and fairy lights."
+  },
+  {
+    id: 5,
+    category: "sangeet",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop",
+    title: "High-Energy Choreography",
+    caption: "Family stage performances coordinated by our signature choreography team."
+  },
+  {
+    id: 6,
+    category: "catering",
+    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=800&auto=format&fit=crop",
+    title: "Artisanal Dessert Platters",
+    caption: "Assortment of modern fusion desserts and traditional sweets."
+  },
+  {
+    id: 7,
+    category: "decor",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800&auto=format&fit=crop",
+    title: "Minimalist Pastel Table Setting",
+    caption: "Elegant pastel rose setups for our boutique outdoor celebrations."
+  },
+  {
+    id: 8,
+    category: "photography",
+    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800&auto=format&fit=crop",
+    title: "Bespoke Bridal Portrait",
+    caption: "High-end candid portrait highlighting detailed luxury wedding attire."
+  },
+  {
+    id: 9,
+    category: "sangeet",
+    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800&auto=format&fit=crop",
+    title: "Bespoke Concert-Style DJ Night",
+    caption: "State of the art trussing and concert line array sound for grand sangeet finales."
+  }
+];
+
+const categories = [
+  { id: "all", label: "Show All" },
+  { id: "decor", label: "Decoration" },
+  { id: "catering", label: "Catering" },
+  { id: "sangeet", label: "Sangeet & Sound" },
+  { id: "photography", label: "Photography" }
+];
+---
+
+<section id="gallery" class="py-24 sm:py-32 bg-brand-ivory relative">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 gap-8">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-widest text-brand-gold mb-3 block">Visual Portfolio</span>
+        <h2 class="text-3xl sm:text-5xl font-serif tracking-wide text-brand-charcoal">
+          Curated *Galaxies* of Love
+        </h2>
+        <div class="w-16 h-[1px] bg-brand-gold mt-4"></div>
+      </div>
+      
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap gap-2 md:gap-3">
+        {categories.map((cat) => (
+          <button
+            data-filter={cat.id}
+            class={`filter-btn px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-sm border transition-all duration-300 focus-gold ${
+              cat.id === "all"
+                ? "bg-brand-charcoal text-white border-brand-charcoal"
+                : "border-brand-gold/30 text-brand-charcoal hover:border-brand-gold hover:bg-brand-gold-light/20"
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Masonry Photo Grid -->
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6" id="gallery-grid">
+      {galleryItems.map((item) => (
+        <div 
+          data-category={item.category} 
+          class="gallery-item break-inside-avoid relative group overflow-hidden rounded-sm border border-brand-gold/10 bg-white shadow-sm transition-all duration-500 ease-out hover:shadow-md block hover:-translate-y-1"
+        >
+          <div class="overflow-hidden aspect-auto max-h-[500px]">
+            <img 
+              src={item.image} 
+              alt={item.title} 
+              loading="lazy"
+              class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+          </div>
+          
+          <!-- Caption / Overlay info on hover (looks very elegant and clean) -->
+          <div class="p-6 bg-white border-t border-brand-gold/10">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-gold block mb-1">
+              {item.category}
+            </span>
+            <h3 class="font-serif text-lg text-brand-charcoal group-hover:text-brand-gold transition-colors duration-300">
+              {item.title}
+            </h3>
+            <p class="text-xs text-brand-charcoal-light/80 mt-2 font-light leading-relaxed">
+              {item.caption}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.gallery-item');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Toggle button styles
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-brand-charcoal', 'text-white', 'border-brand-charcoal');
+        btn.classList.add('border-brand-gold/30', 'text-brand-charcoal', 'hover:border-brand-gold', 'hover:bg-brand-gold-light/20');
+      });
+
+      button.classList.add('bg-brand-charcoal', 'text-white', 'border-brand-charcoal');
+      button.classList.remove('border-brand-gold/30', 'text-brand-charcoal', 'hover:border-brand-gold', 'hover:bg-brand-gold-light/20');
+
+      const filter = button.getAttribute('data-filter');
+
+      // Filter grid items
+      items.forEach(item => {
+        const category = item.getAttribute('data-category');
+        const htmlItem = item as HTMLElement;
+
+        if (filter === 'all' || category === filter) {
+          htmlItem.style.display = 'block';
+          // Force a slight delay for smooth reflow/fade animation
+          setTimeout(() => {
+            htmlItem.style.opacity = '1';
+            htmlItem.style.transform = 'scale(1)';
+          }, 10);
+        } else {
+          htmlItem.style.opacity = '0';
+          htmlItem.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            htmlItem.style.display = 'none';
+          }, 400);
+        }
+      });
+    });
+  });
+</script>

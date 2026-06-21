@@ -1,0 +1,124 @@
+---
+---
+
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-nav" id="main-header">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <div class="flex items-center justify-between h-20 sm:h-24">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group focus-gold">
+        <span class="font-serif text-xl sm:text-2xl font-semibold tracking-wide text-brand-charcoal group-hover:text-brand-gold transition-colors duration-300">
+          Sagar Soni <span class="font-serif-italic font-normal text-brand-gold text-base sm:text-lg ml-0.5">Weddings</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 lg:gap-10">
+        <a href="#services" class="text-sm font-medium tracking-wider uppercase text-brand-charcoal/80 hover:text-brand-gold transition-colors duration-300 focus-gold">Services</a>
+        <a href="#gallery" class="text-sm font-medium tracking-wider uppercase text-brand-charcoal/80 hover:text-brand-gold transition-colors duration-300 focus-gold">Gallery</a>
+        <a href="#calculator" class="text-sm font-medium tracking-wider uppercase text-brand-charcoal/80 hover:text-brand-gold transition-colors duration-300 focus-gold">Budget Planner</a>
+        <a href="#testimonials" class="text-sm font-medium tracking-wider uppercase text-brand-charcoal/80 hover:text-brand-gold transition-colors duration-300 focus-gold">Reviews</a>
+        <a href="#about" class="text-sm font-medium tracking-wider uppercase text-brand-charcoal/80 hover:text-brand-gold transition-colors duration-300 focus-gold">About</a>
+        <a href="#contact" class="text-sm font-medium tracking-wider uppercase text-brand-charcoal/80 hover:text-brand-gold transition-colors duration-300 focus-gold">Contact</a>
+      </nav>
+
+      <!-- CTA and Hamburger -->
+      <div class="flex items-center gap-4">
+        <a 
+          href="#contact" 
+          class="hidden sm:inline-flex items-center justify-center px-6 py-3 border border-brand-gold text-xs font-semibold tracking-widest uppercase text-brand-charcoal bg-transparent hover:bg-brand-gold hover:text-white transition-all duration-500 rounded-sm focus-gold shadow-sm hover:shadow-md"
+        >
+          Book a Consultation
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button 
+          id="menu-toggle" 
+          aria-expanded="false" 
+          aria-label="Toggle Navigation Menu" 
+          class="md:hidden p-2 text-brand-charcoal hover:text-brand-gold transition-colors duration-300 focus-gold"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" id="menu-icon-hamburger" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" class="hidden" id="menu-icon-close" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Overlay Menu -->
+  <div 
+    id="mobile-menu" 
+    class="fixed inset-0 top-20 bg-brand-ivory/98 backdrop-blur-md z-40 flex flex-col px-8 py-12 transition-all duration-500 ease-in-out transform translate-x-full md:hidden border-t border-brand-gold/10"
+  >
+    <nav class="flex flex-col gap-6 text-center">
+      <a href="#services" class="mobile-nav-link text-xl font-serif text-brand-charcoal hover:text-brand-gold transition-colors duration-300">Services</a>
+      <a href="#gallery" class="mobile-nav-link text-xl font-serif text-brand-charcoal hover:text-brand-gold transition-colors duration-300">Gallery</a>
+      <a href="#calculator" class="mobile-nav-link text-xl font-serif text-brand-charcoal hover:text-brand-gold transition-colors duration-300">Budget Planner</a>
+      <a href="#testimonials" class="mobile-nav-link text-xl font-serif text-brand-charcoal hover:text-brand-gold transition-colors duration-300">Reviews</a>
+      <a href="#about" class="mobile-nav-link text-xl font-serif text-brand-charcoal hover:text-brand-gold transition-colors duration-300">About the Founder</a>
+      <a href="#contact" class="mobile-nav-link text-xl font-serif text-brand-charcoal hover:text-brand-gold transition-colors duration-300">Contact</a>
+    </nav>
+    <div class="mt-12 flex justify-center">
+      <a 
+        href="#contact" 
+        class="mobile-nav-link inline-flex items-center justify-center w-full max-w-xs px-6 py-4 border border-brand-gold text-sm font-semibold tracking-wider uppercase text-brand-charcoal bg-transparent hover:bg-brand-gold hover:text-white transition-all duration-300 rounded-sm"
+      >
+        Book a Consultation
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.getElementById('menu-icon-hamburger');
+  const closeIcon = document.getElementById('menu-icon-close');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  const header = document.getElementById('main-header');
+
+  // Toggle Menu
+  function toggleMenu() {
+    const isOpen = menuToggle?.getAttribute('aria-expanded') === 'true';
+    menuToggle?.setAttribute('aria-expanded', String(!isOpen));
+    
+    if (!isOpen) {
+      mobileMenu?.classList.remove('translate-x-full');
+      hamburgerIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Lock scrolling
+    } else {
+      mobileMenu?.classList.add('translate-x-full');
+      hamburgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      document.body.style.overflow = ''; // Unlock scrolling
+    }
+  }
+
+  menuToggle?.addEventListener('click', toggleMenu);
+
+  // Close mobile menu when clicking a link
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('translate-x-full');
+      hamburgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      document.body.style.overflow = '';
+      menuToggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Change Navbar visual style on scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('py-1', 'shadow-sm', 'bg-brand-ivory/95');
+      header?.classList.remove('bg-brand-ivory/85');
+    } else {
+      header?.classList.remove('py-1', 'shadow-sm', 'bg-brand-ivory/95');
+      header?.classList.add('bg-brand-ivory/85');
+    }
+  });
+</script>
